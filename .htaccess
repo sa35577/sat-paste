@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# If you want websockets, uncomment this:
+#RewriteCond %{HTTP:UPGRADE} ^WebSocket$ [NC]
+#RewriteCond %{HTTP:CONNECTION} ^Upgrade$ [NC]
+#RewriteRule .* ws://localhost:1457%{REQUEST_URI} [L,P]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule "index.html" "http://hfcs:1457/" [P]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule "^(.*)$" "http://hfcs:1457/$1" [P]
