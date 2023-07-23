@@ -1,6 +1,3 @@
-var filePath = "data.txt";
-
-
 function writeOut() {
   var data = document.getElementById('inp').value;
   fetch("http://localhost:1457/newText", {
