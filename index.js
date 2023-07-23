@@ -1,6 +1,6 @@
 function writeOut() {
   var data = document.getElementById('inp').value;
-  fetch("http://localhost:1457/newText", {
+  fetch("https://csclub.uwaterloo.ca/~s97arora/sat-paste/newText", {
     method : "POST",
     headers: {
       "Content-type": "application/json; charset=UTF-8"
@@ -12,22 +12,19 @@ function writeOut() {
 }
 
 function selectText(needCopy) {
-  // Get the text field
   var copyText = document.getElementById('inp');
   var textSize = document.getElementById('inp').value.length;
 
-  // Select the text field
-  copyText.select();
+  copyText.select(); 
   copyText.setSelectionRange(0, textSize);
 
-   // Copy the text inside the text field
   if (needCopy)
     navigator.clipboard.writeText(copyText.value);
 
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetch("http://localhost:1457/initialText", {
+  fetch("https://csclub.uwaterloo.ca/~s97arora/sat-paste/initialText", {
     method : "GET",
     headers: {
       "Content-type": "application/json; charset=UTF-8"
@@ -36,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .then((res) => (res.json()))
   .then((res) => {
     document.getElementById('inp').value = res.text;
-    document.getElementById('adsf').innerHTML = res.text;
-    //console.log(res);
+    //console.log(res.text);
   })
 }, false);
 

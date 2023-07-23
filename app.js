@@ -5,14 +5,14 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 const port = 1457
-var originalData = "fuck pd"
+var originalData = "Common factoring is the most important skill in math"
 
 app.get('/initialText', (req, res) => {
     res.json({text : originalData})
 })
 
 app.post('/newText', (req, res) => {
-    //console.log(req.body);
+    //console.log(req.body.text);
     originalData = req.body.text;
     res.status(200).send("OK");
 })
