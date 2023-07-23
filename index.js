@@ -12,14 +12,22 @@ function writeOut() {
       "text" : data
     })
   })
-  // .then(res => {
-  //   if (res.status == 200) {
-  //     console.log("Success")
-  //   }
-  //   else {
-  //     console.log("Fail")
-  //   }
-  // })
+}
+
+function copyText(needCopy) {
+  // Get the text field
+  var copyText = document.getElementById('inp');
+  var textSize = document.getElementById('inp').value.length;
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, textSize); // For mobile devices
+
+   // Copy the text inside the text field
+  if (needCopy)
+    navigator.clipboard.writeText(copyText.value);
+  
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
